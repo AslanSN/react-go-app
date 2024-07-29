@@ -64,13 +64,6 @@ func main() {
 		return c.Status(404).JSON(fiber.Map{"error": "Todo not found"})
 	})
 
-	// app.Get("/api/todos", func(c *fiber.Ctx) error {
-	// 	if todos ==  {
-	// 		return c.Status(404).JSON(fiber.Map{"errors": "Todos not found"})
-	// 	}
-	// 	return c.Status(200).JSON(todos)
-	// })
-
 	app.Delete("/api/todos/:id", func(c *fiber.Ctx) error {
 		id := c.Params("id")
 
@@ -82,5 +75,6 @@ func main() {
 		}
 		return c.Status(404).JSON(fiber.Map{"errors": "Todos not found"})
 	})
+	
 	log.Fatal(app.Listen(":" + PORT))
 }
